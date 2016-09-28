@@ -21,4 +21,5 @@ I made use of Junit because of the use of annotations/testcases/etc.
 
 The test suite:
 Testcase 1: The test order 2 items and do a checkout. The checkout has a check to verify.
+
 Testcase 2: The test does a check if the amount of items on each of 2 pages is right.
