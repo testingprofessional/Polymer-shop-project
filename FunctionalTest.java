@@ -9,29 +9,29 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FunctionalTest {
-		protected static WebDriver driver;
+	protected static WebDriver driver;
 		
-		@Before
-		   public void beforeTest() {
-			   driver = new FirefoxDriver();  
-			   driver.manage().window().maximize();
-			   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		   }
+	@Before
+	   public void beforeTest() {
+		   driver = new FirefoxDriver();  
+		   driver.manage().window().maximize();
+		   driver.get(Constant.mainUrl);
+	   }
 		   
-		 @After
-		 	public void afterTest() {
-			   driver.close();  
-			   driver.quit();
-		   }
+	 @After
+	 	public void afterTest() {
+		   driver.close();  
+		   driver.quit();
+	   }
 		 
-		 public void waitSomeSeconds(int seconds) {
-			   try{  
-				   TimeUnit.SECONDS.sleep(seconds);
-			}catch(Exception e){}
-		   }
+	 public void waitSomeSeconds(int seconds) {
+		   try{  
+			   TimeUnit.SECONDS.sleep(seconds);
+		   }catch(Exception e){}
+	   }
 		 
-		 public void webdriverWaitForElement(String xpath) {
-			 WebDriverWait wait = new WebDriverWait(driver, 10);
-			 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-		 }	 
+	 public void webdriverWaitForElement(String xpath) {
+		 WebDriverWait wait = new WebDriverWait(driver, 10);
+		 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+	 }	 
 }

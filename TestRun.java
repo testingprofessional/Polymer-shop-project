@@ -3,38 +3,32 @@ import org.junit.Test;
   
  public class TestRun extends FunctionalTest {
     
-	 	@Test
-	 	public void verifyItemsOnPage() {
-	 		int mensOuterwearItems = 16;
-	 		int ladiesOuterwearItems = 6;
+	 @Test
+	 public void verifyItemsOnPage() {
 	 		
-	 		driver.get("https://shop.polymer-project.org");
+	 	ItemPages itemsPages = new ItemPages();
 	 		
-	 		ItemPages itemsPages = new ItemPages();
+	 	// Verify amount of items in Men's outerwear
+	 	int countMensOuterwearItems = itemsPages.verifyItemsOnPage(ItemPages.mensOuterwarePage);
+	 	assertEquals(Constant.mensOuterwearItems, countMensOuterwearItems);
 	 		
-	 		// Verify amount of items in Men's outerwear
-	 		int countMensOuterwearItems = itemsPages.verifyItemsOnMensOuterwearPage();
-	 		assertEquals(mensOuterwearItems, countMensOuterwearItems);
-	 		
-	 		// Verify amount of items in Ladies outerwear
-	 		int countLadiesOuterwearItems = itemsPages.verifyItemsOnLadiesOuterwearPage();
-	 		assertEquals(ladiesOuterwearItems, countLadiesOuterwearItems);
-	 		
-	 	}
+	 	// Verify amount of items in Ladies outerwear
+	 	int countLadiesOuterwearItems = itemsPages.verifyItemsOnPage(ItemPages.ladiesOuterwarePage);
+	 	assertEquals(Constant.ladiesOuterwearItems, countLadiesOuterwearItems);	
+ 	}
 	 	
-	 	@Test 
-	 	public void orderItemsAndCheckout() {
-	 		driver.get("https://shop.polymer-project.org");
+	@Test 
+ 	public void orderItemsAndCheckout() {
 	 		
-	 		OrderProcess orderProcess = new OrderProcess();
+ 		OrderProcess orderProcess = new OrderProcess();
 	 		
-	 		// Order items and checkout
-	 		orderProcess.chooseItems();
-	 		orderProcess.checkoutPageItems("customer@email.com", "1234567890", "Street 21", "New York", "State of New York", "9911AL", "Customer Name", "1234 5432 6789 9876", "123");
+		// Choose items and checkout
+		orderProcess.chooseItems();
+ 		orderProcess.checkoutPageItems("customer@email.com", "1234567890", "Street 21", "New York", "State of New York", "9911AL", "Customer Name", "1234 5432 6789 9876", "123");
 	 		
-	 		// Verify if checkout succeeded
-	 		String strng = orderProcess.verifyCheckoutSucceeded();
-	 		assertEquals("Thank you", strng);
-	 	}
+ 		// Verify if checkout succeeded
+ 		String strng = orderProcess.verifyCheckoutSucceeded();
+ 		assertEquals("Thank you", strng);
+ 	}
  }
   

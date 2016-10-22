@@ -4,27 +4,28 @@ import org.openqa.selenium.WebElement;
 public class OrderProcess extends FunctionalTest {
 	
 	public void chooseItems() {
-	    waitSomeSeconds(1);
+		
+	    webdriverWaitForElement(".//*[@id='container']/shop-tab[4]/shop-ripple-container/a");
 		
 		// Ladies T-Shirts
 		driver.findElement(By.xpath(".//*[@id='container']/shop-tab[4]/shop-ripple-container/a")).click();
-	    waitSomeSeconds(1);
+		webdriverWaitForElement("//shop-list/ul/li[19]/a/shop-list-item/div");
 	    
 	    // Women's Android Heart T-Shirt
 	    driver.findElement(By.xpath("//shop-list/ul/li[19]/a/shop-list-item/div")).click();
-	    waitSomeSeconds(1);
+	    webdriverWaitForElement(".//*[@id='content']/div/shop-button/button");
 	    
 	    // Add to cart
 	    driver.findElement(By.xpath(".//*[@id='content']/div/shop-button/button")).click();
-	    waitSomeSeconds(1);
+	    webdriverWaitForElement(".//*[@id='viewCartAnchor']");
 	    
 	    // View cart
 	    driver.findElement(By.xpath(".//*[@id='viewCartAnchor']")).click();
-	    waitSomeSeconds(1);
+	    webdriverWaitForElement(".//*[@id='contentContainer']/app-toolbar/div[2]/a");
 	     
 	    // Go to shop
 	    driver.findElement(By.xpath(".//*[@id='contentContainer']/app-toolbar/div[2]/a")).click();
-	    waitSomeSeconds(1);
+	    webdriverWaitForElement(".//*[@id='container']/shop-tab[2]/shop-ripple-container/a");
 	    
 	    // Ladies outerwear
 	    driver.findElement(By.xpath(".//*[@id='container']/shop-tab[2]/shop-ripple-container/a")).click();
@@ -32,17 +33,18 @@ public class OrderProcess extends FunctionalTest {
 	    
 	    // Ladies Colorblock Wind Jacket
 	    driver.findElement(By.xpath("//shop-list/ul/li[2]/a/shop-list-item/div")).click();
-	    waitSomeSeconds(1);
+	    webdriverWaitForElement(".//*[@id='content']/div/shop-button/button");
 	    
 	    // Add to cart
 	    driver.findElement(By.xpath(".//*[@id='content']/div/shop-button/button")).click();
-	    waitSomeSeconds(1);
+	    webdriverWaitForElement("html/body/shop-app/shop-cart-modal/div[2]/shop-button[2]/a");
 	    	    
 	    // Checkout                  
 	    driver.findElement(By.xpath("html/body/shop-app/shop-cart-modal/div[2]/shop-button[2]/a")).click();
 	}
 
     public void checkoutPageItems(String email, String phone, String address, String city, String state, String zip, String ccname, String ccnumber, String cvv) {
+    	
     	webdriverWaitForElement(".//*[@id='accountEmail']");
     	
 	    WebElement Email = driver.findElement(By.xpath(".//*[@id='accountEmail']")); 
