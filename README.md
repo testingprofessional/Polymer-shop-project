@@ -10,7 +10,7 @@ element present/visible' but it look like it doesn't work everywhere in the test
 * Polymer is new to me so i had to find out things that cost time.
  
 Maintainability:
-My main goal is to make the test suite maintainable so i used 'page objects' for that.
+My main goal is to make the test suite maintainable so, for example, i used 'page objects' for that.
 
 Xpath:
 Normally i prefer 'id' or 'name' as identifier for elements. Because Polymer is generated code (most of it)
